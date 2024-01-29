@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migration Page</title>
+    <script>
+        const express = require('express');
+        const bodyParser = require('body-parser');
+
+        const app = express();
+        const port = 3000;
+
+        app.use(bodyParser.json());
+
+        app.post('/bitrix24-webhook-handler', (req, res) => {
+        // Handle incoming data from Bitrix24
+        const eventData = req.body;
+
+        // Implement your logic to process the Bitrix24 event
+        // ...
+
+        res.status(200).send('Webhook received successfully');
+        });
+
+        app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+        });
+    </script>
+</head>
+<body>
+    <p>Hello!!</p>
+</body>
+</html>
